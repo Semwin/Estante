@@ -1,0 +1,221 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel = 'stylesheet' href ="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel = 'stylesheet' href ="{% static 'css/style.css' %}">
+    <link rel = 'stylesheet' href ="{% static 'css/register.css' %}">
+    <link rel = 'stylesheet' href ="{% static 'css/style.css' %}">
+    <link rel = 'stylesheet' href ="{% static 'css/home.css' %}">
+    <link rel = 'stylesheet' href ="{% static 'css/about_us.css' %}">
+    <link rel = 'stylesheet' href ="{% static 'css/book_detail.css' %}">
+    <link rel = 'stylesheet' href = "{% static 'uikit/css/uikit.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% block title %}
+    <title>eSTANTE | About Us</title>
+    {% endblock %}
+    
+    <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+    }
+
+    html {
+      box-sizing: border-box;
+    }
+
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    .column {
+      float: left;
+      width: 33.3%;
+      margin-bottom: 16px;
+      padding: 0 8px;
+    }
+
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      margin: 8px;
+      
+    }
+
+    .about-section {
+      padding-top: 0px;
+      padding-bottom: 25px;
+      text-align: center;
+      font-size: 50px;
+      font-weight: bold;
+      background-color: #290001;
+      color: white;
+    }
+
+    .container {
+      padding: 0 16px;
+    }
+
+    .container::after, .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    .title {
+      color: black;
+    }
+
+    .button {
+      border: none;
+      outline: 0;
+      display: inline-block;
+      padding: 8px;
+      color: white;
+      background-color: #87431D;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .button:hover {
+      background-color: #C87941;
+    }
+
+    @media screen and (max-width: 650px) {
+      .column {
+        width: 100%;
+        display: block;
+      }
+    }
+    </style>
+  </head>
+<body style="background-color: #DBCBBD;">
+  <nav class="navbar navbar-expand-lg" style="background-color: #290001">
+    <div class="container-fluid">
+      <div id = 'logo'>
+        <a href="http://127.0.0.1:8008/book/home/">
+          <img src = "{% static 'img/logo.png' %}">
+          <style>
+            #logo{
+              width: 150px;
+              height: 70px;
+              cursor:pointer;
+            }
+            #logo img{
+                width: 100%;
+                height: 100%;
+            }
+          </style> </a>
+      </div>
+      <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="nav-link" href="{% url 'home' %}">
+        <button type="button" style="color: white; background-color: #87431D; border-color: #C87941; border-width: medium; border-radius: 7px;" class="btn btn-outline-success"><strong>Back to Home Page</strong></button>
+        </a>
+    </div>
+  </nav>
+
+<div class="about-section">
+  <h1 style="color:white; font-weight:bold;">About Us</h1>
+  <h4 style="color:white;">Hi Users! We are Computer Engineering Students from Technological Institute of The Philippines - Quezon City.</h4>
+</div>
+
+<h2 style="color: #290001; font-weight:bold; text-align:center">Our Team</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src = "{% static 'img/j_rempillo.png' %}">
+      <div class="container">
+        <h3 style="color: #290001; font-weight:bold; text-align:center">Jomar Rempillo</h3>
+        <p class="title">Member</p>
+        <p>Railway Engineering Student</p>
+        <p>qjaurempillo@tip.edu.ph</p>
+        <a href= 'https://www.facebook.com/akosi.j.bautista'target="_blank">
+          <p><button class="button"> Contact</button></p>
+          </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src = "{% static 'img/r_medenilla.jpg' %}">
+      <div class="container">
+        <h3 style="color: #290001; font-weight:bold; text-align:center">Rosselle Medenilla</h3>
+        <p class="title">Member</p>
+        <p>System Administrator Student</p>
+        <p>qrcmedenilla@tip.edu.ph</p>
+        <a href= 'https://www.facebook.com/sel.medenilla'target="_blank">
+          <p><button class="button"> Contact</button></p>
+          </a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <img src = "{% static 'img/j_olino.png' %}">
+      <div class="container">
+        <h3 style="color: #290001; font-weight:bold; text-align:center">Jeron Olino</h3>
+        <p class="title">Member</p>
+        <p>System Administrator Student</p>
+        <p>qjdolino@tip.edu.ph</p>
+        <a href= 'https://www.facebook.com/Jriezon'target="_blank">
+          <p><button class="button"> Contact</button></p>
+          </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src = "{% static 'img/s_tagaan.png' %}">
+      <div class="container">
+        <h3 style="color: #290001; font-weight:bold; text-align:center">Semiah Godwin Tagaan</h3>
+        <p class="title">Member</p>
+        <p>System Administrator Student</p>
+        <p>qsggtagaan@tip.edu.ph</p>
+        <a href= 'https://www.facebook.com/Semiah.Godwin'target="_blank">
+          <p><button class="button"> Contact</button></p>
+          </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src = "{% static 'img/j_racal.png' %}">
+      <div class="container">
+        <h3 style="color: #290001; font-weight:bold; text-align:center">Jayvee Racal</h3>
+        <p class="title">Member</p>
+        <p>System Administrator Student</p>
+        <p>qjdcracal@tip.edu.ph</p>
+        <a href= 'https://www.facebook.com/JayDelaCruzRacal'target="_blank">
+          <p><button class="button"> Contact</button></p>
+          </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src = "{% static 'img/unknown.jpg' %}">
+      <div class="container">
+        <h3 style="color: #290001; font-weight:bold; text-align:center">Engr. Jonathan Taylar</h3>
+        <p class="title">Instructor</p>
+        <p>Computer Engineering Teacher</p>
+        <p>jtaylar.cpe@tip.edu.ph</p>
+        <a href= 'https://www.facebook.com/jvtaylar'target="_blank">
+          <p><button class="button"> Contact</button></p>
+          </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

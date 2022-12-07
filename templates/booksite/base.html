@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" style = "background:#DBCBBD; background-size:cover;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  {% block title %}
+  <title>eSTANTE</title>
+  {% endblock %}
+  
+  <link rel = 'stylesheet' href ="{% static 'bootstrap/css/bootstrap.min.css' %}">
+  <link rel = 'stylesheet' href ="{% static 'css/style.css' %}">
+  <link rel = 'stylesheet' href ="{% static 'css/register.css' %}">
+  <link rel = 'stylesheet' href ="{% static 'css/style.css' %}">
+  <link rel = 'stylesheet' href ="{% static 'css/home.css' %}">
+  <link rel = 'stylesheet' href ="{% static 'css/about_us.css' %}">
+  <link rel = 'stylesheet' href ="{% static 'css/book_detail.css' %}">
+  <link rel = 'stylesheet' href = "{% static 'uikit/css/uikit.css' %}">
+</head>
+<body style="background-color: #DBCBBD;">
+  <nav class="navbar navbar-expand-lg" style="background-color: #290001">
+    <div class="container-fluid">
+      <div id = 'logo'>
+        <a href="http://127.0.0.1:8008/book/home/">
+          <img src = "{% static 'img/logo.png' %}">
+          <style>
+            #logo{
+              width: 150px;
+              height: 70px;
+              cursor:pointer;
+            }
+            #logo img{
+                width: 100%;
+                height: 100%;
+            }
+          </style> </a>
+      </div>
+      <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" > 
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <li><a class="nav-link active" style="color: white" aria-current="page" href="{% url 'about_us' %}">About Us</a></li>
+            <li><a class="nav-link active" style="color: white" aria-current="page" href="{% url 'home' %}">Home</a></li>
+          </li>
+        </ul>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" style="background-color: #87431D; border-color: #C87941; border-width: medium; border-radius: 7px;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <strong>Categories</strong> 
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton0" style="background-color: #DBCBBD;">
+                {% for category in categories %}
+                <li><a class="dropdown-item" style = "width: auto; margin: 0px; margin-top: 0px; padding-left: 5px;" href="{% url 'category_detail' category.slug %}"><strong>{{category.name}}</strong></a></li>
+                {% endfor %}
+            </ul>
+          </div>
+        
+        <form class="d-flex" method = 'POST' action = "{% url 'book_search' %}" style="margin: 0px;">
+          <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+          {% csrf_token %}
+          {{search_form.name_of_book}}
+          <button class="btn btn-outline-success" style = "color: white; margin-left: 5px; background-color: #87431D; border-color: #C87941; border-width: medium; border-radius: 7px;" type="submit"><strong>Search</strong></button>
+        </form>
+        <div style = 'width: auto; display: flex'>
+          {% if user.is_authenticated %}
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" style="background-color: #87431D; border-color: #C87941; border-width: medium; border-radius: 7px;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <strong>Hello</strong><strong style="text-transform: uppercase;"> {{user.username}}!</strong>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="background-color: #DBCBBD;">
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+          </div> 
+          {% else %}
+          <a class="nav-link" href="{% url 'register' %}">
+            <button type="button" style="color: white; background-color: #87431D; border-color: #C87941; border-width: medium; border-radius: 7px;" class="btn btn-outline-primary"><strong>Sign Up</strong></button>
+          </a>
+            <a class="nav-link" href="{% url 'login' %}">
+            <button type="button" style="color: white; background-color: #87431D; border-color: #C87941; border-width: medium; border-radius: 7px;" class="btn btn-outline-success"><strong>Sign In</strong></button>
+            </a>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+  </nav>
+    
+{% block content %}
+<h1>Hello World</h1>
+{% endblock %}
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+</body>
+<footer style="background-color: #DBCBBD;"></footer>
+</html>
