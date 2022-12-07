@@ -1,0 +1,33 @@
+{% extends 'booksite/base.html' %}
+
+{% block title %}
+<title>eSTANTE | Login</title>
+{% endblock %}
+
+{% block content %}
+<div id = 'container' style = 'background-color: #DBCBBD; border-color: #290001; border-width: thick;'>
+    <div class = 'header' style="background-color: #DBCBBD; border-color: #C87941; border-width: medium; border-radius: 7px;">
+        <h2 style="color: #290001; font-weight:bold; margin: auto;">Login</h2>
+    </div>
+    <form action = '#' method = 'POST'>
+        {% csrf_token %}
+        <div id = 'form-control'>
+            <strong><label>Username:</label></strong>
+            <input type="text" name="username" class="form-control" placeholder="Enter Username" maxlength="100" autofocus="" required="" id="id_username">
+        </div>
+        <div id = 'form-control'>
+            <strong><label>Password</label></strong>
+            <input type="password" name="password1" class="form-control" placeholder="At least eight characters" maxlength="100" required="" id="id_password1">
+        </div>
+        {% for message in messages %}
+        <p class  = 'successMsg'>{{message}}</p>
+        {% endfor%}
+        <div id = 'haveAnAccount'>
+            <p>Don't have an account?
+            <a href = "{% url 'register' %}" style="color: #290001;"><strong><u>Sign Up</u></strong></a>
+        </p>
+        </div>
+        <button style="background-color: #87431D; border-color: #C87941; border-width: medium; border-radius: 7px;" type='submit' id = 'submitButton'><strong>Sign In</strong></button>
+    </form>
+</div>
+{% endblock %}

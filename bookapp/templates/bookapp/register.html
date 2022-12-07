@@ -1,0 +1,43 @@
+{% extends 'booksite/base.html' %}
+
+{% block title %}
+<title>eSTANTE | Register</title>
+{% endblock %}
+
+{% block content %}
+<div id = 'container' style = 'background-color: #DBCBBD; border-color: #290001; border-width: thick;'>
+    <div class = 'header' style="background-color: #DBCBBD; border-color: #C87941; border-width: medium; border-radius: 7px;">
+        <h2 style="color:#290001; font-weight:bold; margin: auto;">Create an Account</h2>
+    </div>
+    <form action = '#' method = 'POST'>
+        {% csrf_token %}
+        <div id = 'form-control'>
+            <strong><label>Username:</label></strong>
+            <!-- <input type="text" name="username" class="form-control" placeholder="Enter Username" maxlength="100" autofocus="" required=""> -->
+            {{register_form.username}}
+        </div>
+        <div id = 'form-control'>
+            <strong><label>Email:</label></strong>
+            <!-- <input type= "email" name="email" class="form-control" placeholder="Enter EmailAddress" maxlength="100" autofocus="" required=""> -->
+            {{register_form.email}}
+        </div>
+        <div id = 'form-control'>
+            <strong><label>Password:</label></strong>
+            <!-- <input type="password" name="password1" class="form-control" placeholder="At least eight characters" maxlength="100" autofocus="" required=""> -->
+            {{register_form.password1}}
+        </div>
+        <div id = 'form-control'>
+            <strong><label>Confirm Password:</label></strong>
+            <!-- <input type="password" name="password2" class="form-control" placeholder="Confirm password" maxlength="100" autofocus="" required=""> -->
+            {{register_form.password2}}
+        </div>
+        {{register_form.errors}}
+        <div id = 'haveAnAccount'>
+            <p>Already have an account?
+            <a href = "{% url 'login' %}" style="color: #290001;"><strong><u>Sign In</u></strong></a>
+        </p>
+        </div>
+        <button style="background-color: #87431D; border-color: #C87941; border-width: thick; border-radius: 7px;" type = 'submit' id = 'submitButton'><strong>Sign Up</strong></button>
+    </form>
+</div>
+{% endblock %}
